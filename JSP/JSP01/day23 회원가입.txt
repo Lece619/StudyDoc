@@ -1,0 +1,5 @@
+MVC 
+
+model data
+view    jsp
+controller method 

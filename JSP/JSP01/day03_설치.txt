@@ -1,0 +1,13 @@
+JDK 11버전 설치
+이클립스 포톤버전설치
+
+톰캣설치
+톰캣 9  
+startup 더블클릭
+-http://localhost:8080/ 나오면 정상  
+
+xml .java 라는 서블릿을확인
+C:\apache-tomcat-9.0.62\conf  
+server 주석 없는곳 host 8080 ->8085 변경
+
+http://localhost:8085 톰캣 서버 확인

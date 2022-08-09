@@ -1,0 +1,38 @@
+name="writeForm" method="post" enctype="multipart/form-data">
+
+--> 파일을 넣을수 있는 타입.
+
+
+$(".files").change(function(e){
+		console.log(e.target);
+		//let file = e.target.files[0];
+})
+-> 파일형식이 타겟이된다. type = file. input tag
+
+$(".files").change(function(e){
+		/* console.log(e.target.files); */
+		let file = e.target.files[0];
+		let img = $(this).find("img");
+		if(!file.type.match("image.*")){
+			img.attr("src","${pageContext.request.contextPath}/images/no_img.jpg");
+		}else{
+			let reader = new FileReader();
+			reader.onload = function(e){
+				//console.log(e.target.result);
+				img.attr("src",e.target.result)
+			}
+			reader.readAsDataURL(file);
+		}
+	})
+
+	//console.log(e.target.result); 이부분의 결과를 보면 base64로 인크립트 되어있다.
+
+
+////////////멀티타입을 받기 위한 라이브러리가 필요하다.
+https://servlets.com/cos/  ===>cos.zip 다운
+MultipartRequest multi = null;
+//		multi = new MultipartRequest(req, 경로, 파일의 크기, 인코딩방식, new DefaultFileRenamePolicy());
+		multi = new MultipartRequest(req, saveFolder, fileSize,"UTF-8", new DefaultFileRenamePolicy());
+		
+멀티파트 리퀘스트로 받기시작하면 이제 
+request 객체로 사용하면 안된다. 

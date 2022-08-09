@@ -1,0 +1,22 @@
+JSON 
+	경량화된 데이터 교환 형식
+==	키 벨류를 묶어서 URL or URI 를 통해서 전송을한다. = =
+
+	서로 다른 언어들 간 데이터를 주고받을 수 있도록 만들어진 텍스트 기반의 형식이다.
+	프로그래임ㅇ 언어가 아닌 데이터 표기 방법 중 하나이고 기본적으로
+	name : value 형태의 구조를 가지고 있다.
+{
+	"내부1" : { key : value, ......} ,   ===>1번째 JSON 
+	"내부2" : { key : value, .... }     ===>2번째 JSON
+}
+
+JSON 배열
+{
+	"search_word" :[
+		{"rank" : "1", "name" : "JSP"},
+		{"rank" : "2", "name" : "Spring Framework"},
+		{"rank" : "3", "name" : "Java"},
+		{"rank" : "4", "name" : "C언어"}
+	]
+}
+                  result.search_word[0].rank 이런식으로 호출

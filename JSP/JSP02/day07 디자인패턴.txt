@@ -1,0 +1,43 @@
+[jsp 방식]
+	a.jsp --> b.jsp --> c.jsp
+	
+	각 페이지마다 필요 시 자바 코드가 작성되며, DB와 연결하는 코드도 jsp 파일 안에서 모두 작성된다.
+	분리되어 있지 (화면 & 연산)  않기 때문에 규모가 작은 프로젝트에 어울리는 방식이며 코드가 확장될 수록
+	가독성이 떨어지고 분업과 유지보수가 좋지 않다.
+
+DB -> Java   
+테이블에 행 단위로 정보를 받아온다 . 행에 따른 열의 갯수로 Java에 공간을 마련해준다 - > VO valueObject
+
+소프트웨어 디자인 설계 패턴
+
+MVC 
+	Model 	: 데이터 조회 결과값을 저장할 객체 ( VO, DTO )
+		VO & DTO  : 데이터를 조회했을때 거기에 결과를 담을수 있는 저장 공간이 모여있는 클래스.
+		 	     결과값을 이동한 결과가 이동 되기도 한다면, Data Transfer Object 라고도 쓴다.		
+	View	: 화면 구현 (html, jsp, css, js , .....)
+
+	Controller : 데이터 베이스에 접근할 수 있는 코드가 담긴 객체
+		DAO : Data Access Object 
+
+
+[model 1 방식]
+	a.jsp --> b.jsp --> c.jsp
+		↕
+		 DAO.java ↔ VO ↔ DB 
+	
+	b.jsp에서 dao를 호출함으로써 자바코드가 섞이게 된다. 선언은 분리되어 java페이지에 구현이 되기 때문에
+	jsp내의 java코드 양이 줄어들지만 결국 사용은 jsp페이지에서 하기 때문에 Controller와 View가 섞이게 된다.
+	페이지가 확장될 수록 유지보수가 상대적으로 좋지 않지만 설계가 쉽다.
+
+[model 2 방식]
+	a.jsp --> web.xml --> Front-Controller.java  ------------------------------------> c.jsp
+				↕
+			      Controller.java(연산)
+				↕
+			          Dao.java
+				↕
+				DB
+
+web.xml => 요청한 데이터가 어떤 컨트롤러에 있는지, 필요한곳으로 이동시켜줌 .
+	   알맞은 Front-Controller로 이동 시켜줌. ->
+

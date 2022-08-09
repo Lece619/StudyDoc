@@ -1,0 +1,17 @@
+js
+// $('#id')   id만 선택
+// $('.class) class만 선택
+// $('h1.class') h1에 class에 조합이된 엘리먼트를 선택
+// $('h1.class.class') h1에 class에 조합이된 엘리먼트를 선택
+
+// 필터( 기본 필터 , 속성필터, 차일드 필터, 컨텐츠 필터)
+	:even	
+	:odd
+	:first
+	:last . . ..  :nth-child(n)등등
+
+// 매서드 ( 속성값 변경, dom 탐색 css, 이벤트 , 효과 , etc)
+.text
+.html
+.fadeIN fadeOut
+

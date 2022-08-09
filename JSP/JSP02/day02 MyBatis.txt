@@ -1,0 +1,15 @@
+WEB-INF 
+	lib 
+		mybatis
+		orcle jdbc
+		tomcat-dbcp
+
+Build pass 에  mybatis 
+	     oraclejdbc
+	     
+
+
+xml 이란  ?
+	설정파일이라기보단 
+	데이터 전달을 해주는 파일
+	ex) <name> 김진호 </name>  김진호가 전달된다.

@@ -1,0 +1,17 @@
+web.xml에서 *.me 방식으로 들어온 요청을 전부
+
+MemberFrontController로 보내게 되고 . (서블릿) ->HttpServlet를 상속받은 MemberFrontController에서
+doPost나 doGet으로 받은 요청을 정확한
+요청된 URI & URL에 따른 컨트롤러 부분으로 넘겨준다.
+	[URI 구하는 법에는 www.cb.c/board/*****  이런 위치에서 *****를 제외한 부분이 동일하다고 할때
+		앞에 부분을 ContextPath 라 하고 Context Path를 알면 쉽게 잘라내여 URI 를 구할 수 있다.]
+	예)
+		String requestURI = req.getRequestURI();
+		String contextPath = req.getContextPath();
+		String command = requestURI.substring(contextPath.length());  <-원하는 URI
+
+Controller 를 모두 만드는 것은 비효율적이므로
+Action이라는 인터페이스를 만들어서 컨트롤러 마다 구현 될 수 있도록 한다.
+
+Controller 매소드(execute() 매소드)는 어디로, 어떤 방식으로 리턴할지를 정해줘야한다.
+이걸 어디로- 방식을 필드로 가지고 있는 클래스를 만들어 클래스를 리턴해준다.

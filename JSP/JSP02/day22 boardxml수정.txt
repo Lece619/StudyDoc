@@ -1,0 +1,25 @@
+<![CDATA[
+		SELECT * FROM
+		(
+			SELECT ROWNUM R, B.* FROM
+				(SELECT * FROM TBL_BOARD ORDER BY BOARDNUM DESC) B
+			WHERE ROWNUM <= ${endRow} 
+		)
+		WHERE R >= ${startRow}
+]]>
+
+==>이렇게 짜르는 이유는 ROWNUM 자체가 1~시작하는것만 인식 10~30 이렇게 안되기 때문에
+Alias R을 준 테이블로 
+알리아스를 조심해야한다.
+시작 startRow로 나중에 묶어준다.
+
+?부등호가 있을 때는 CDATA 가필요
+
+
+INSERT INTO TBL_BOARD
+(BOARDNUM, BOARDTITLE, BOARDCONTENT, BOARDID)
+VALUES(SEQ_BOARD.NEXTVAL, '테스트1', '테스트내용1', 'jinho123');
+
+INSERT INTO TBL_BOARD
+SELECT SEQ_BOARD.NEXTVAL, BOARDTITLE, BOARDCONTENT, BOARDID,SYSDATE,0 FROM TBL_BOARD;
+더미데이터 만들기

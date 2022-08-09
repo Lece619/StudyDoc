@@ -1,0 +1,10 @@
+SelectList
+	SQL문의 내용이 여러개 일때 
+	객체 한개로 정보를 받기 때문에 
+	행이 여러개 라면 여러개의 객체가 나오기 때문에
+	CollectionFrameWork 중 List 제네릭에 타입을 지정해준다.
+		<select id="findMember" resultType="member">
+		SELECT ID, PW, NAME, AGE FROM TABLE_MEMBER
+		WHERE AGE != 20
+
+

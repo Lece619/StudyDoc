@@ -1,0 +1,18 @@
+String saveFolder = "C:\\jsp_jinho\\workspace2\\board_jsp\\board_mvc\\WebContent\\app\\upload";
+String fileName = req.getParameter("fileName");
+
+//바이트로 직접 가져오고 내보낸다.
+InputStream in = null;
+OutputStream out = null;
+
+File file = null;
+//saveFolder(상위경로), fileName(하위경로)
+try {
+	file = new File(saveFolder,fileName);
+	in = new FileInputStream(file);
+} catch (Exception e) {
+	e.printStackTrace();
+}
+
+resp.setContentType("application/ocatat-stream");
+ -> 이부분으로 해서 다운로드가 진행될수 있도록

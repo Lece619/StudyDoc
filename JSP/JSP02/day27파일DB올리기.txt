@@ -1,0 +1,4 @@
+public void insertFile(MultipartRequest multi,int boardNum) {
+	Enumeration<String> files = multi.getFileNames();  //파일이름을 스트링 으로가져오기
+	FilesVO vo = new FilesVO();
+

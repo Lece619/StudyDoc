@@ -1,0 +1,38 @@
+MVC model2 방식
+							1.forward  2.redirect 전송방식 (데이터 유지여부)
+a.jsp --> web.xml --> Front-Controller.java  ------------------------------------> c.jsp
+				↕
+			      Controller.java(연산)
+				↕
+			          Dao.java
+				↕
+				DB
+
+	a.jsp에서 다음 페이지를 이동하기 전 필요한 비지니스 로직을 완벽히 분리하여 관리한다.
+	사용자가 정의한 확장자 (.me, .bo, ...)를 페이지 이동주소 (URL)에 작성하게 되면 web.xml에 가서 경로를 찾는다.
+	web.xml에 파일 경로를 하나씩 모두 만들게 되면 코드가 길어지기 때문에 *.me가 붙은 모든 요청을 하나의 경로로
+	보내주도록 설정한다. 이 경로를 알맞는 Front-Controller.java 경로로 설정한다.
+	Front-Controller에서는 들어온 요청에서 .me 앞의 요청명으로 어떤 로직을 수행할 지를 판단하도록 분기처리를 한다.
+	비지니스 로직을 Front-Controller에서 작업하게 되면 마찬가지로 코드가 길어지고 유지보수 및 재사용이 어렵기 때문에
+	요청별 Action(Controller)을 만들어서 execute()메소드를 구현한다. 따라서 execute() 메소드를 모든 Action(Controller)에 
+	구현해야 하기 때문에 Action 인터페이스를 선언하여 추상메소드 형태로 execute()를 선언해 놓고 각 Action(Controller)에게
+	지정하여 구현하도록 한다. excute() 내부에서의 작업들은 DAO에 메소드를 구현해 놓고 사용한다.
+	내부 작업이 모두 완료되면 페이지를 이동할 것인지, 어떤 방식으로 할 것인지, 그리고 어디로 이동할 것인지를 결정해서 
+	리턴해야 한다. 이에 관련된 필드를 ActionForward에 만들어 놓은 후 execute()의 리턴 타입을 ActionForward로 지정하여
+	Actino(Controller)의 execute()를 사용하는 Front-Controller에 리턴해준다.
+	Front-Controller에서는 ActionForward 객체에 담긴 결과에 맞게 처리한 후 View로 이동하게 된다.
+
+	-Redirect(request 객체 초기화)
+		Web Browser ==> 결제 페이지 --> 새로 고침(뒤로 가기) --> 결제 페이지
+	
+		클라이언트가 요청했을 때 이전의 값이 남아있지 않도록 하기 위해 사용한다.
+		회원가입, 글 작성, 결제 등
+
+	//잘모르겠으면 forward 사용 ... 큰 문제를 막을 수 있다.
+
+	-Forward(request 객체 유지)
+		Web Browser --> 검색 페이지 --> 검색창 '검색어' 
+
+		클라이언트가 request 객체를 통해 값을 전달해야 할 때 혹은 단순 조회를 요청할 때 사용한다.
+		Redirect 보다 성능이 좋다.
+

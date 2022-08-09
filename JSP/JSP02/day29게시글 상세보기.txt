@@ -1,0 +1,4 @@
+MultipartRequest multi = new MultipartRequest(req, saveFolder, fileSize,"UTF-8", new DefaultFileRenamePolicy());
+					req, 경로, 파일의 크기, 인코딩방식, new DefaultFileRenamePolicy());
+
+경로에 저장이 된다.

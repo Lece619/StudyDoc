@@ -1,0 +1,20 @@
+  <servlet>
+  	<servlet-name>baby</servlet-name>
+  	<jsp-file>/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>baby</servlet-name>
+  	<url-pattern>/Baby</url-pattern>
+  </servlet-mapping>
+요청된 페이지를 다른이름으로 바꿔주는 web.xml 코드
+
+===========================================
+@WebServlet("/Hello") 서블릿의 페이지이름
+=============================================
+
+response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out=response.getWriter();
+		
+		out.println("<html><body><h1>서블릿으로 만든 페이지 </h1>");
+		out.println("<a href='index.jsp'>JSP로 이동! </a>");
+		out.close();
