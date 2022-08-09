@@ -1,0 +1,16 @@
+GROUP  BY : ~ 별( 예 : 포지션 별 평균 키)
+SELECT ??? FROM ???
+WHERE 조건식
+GROUP BY 컬럼명
+HAVING 조건명
+
+
+
+
+SELECT POSITION FROM PLAYER
+WHERE WEIGHT >= 80 AND AVG(HEIGHT) >= 180
+GROUP BY POSITION 
+
+오류 ! 집계함수가 불가능 
+
+SUB QUERY

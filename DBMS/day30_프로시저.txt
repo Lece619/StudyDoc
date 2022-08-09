@@ -1,0 +1,18 @@
+프로시저(Procedure)
+
+함수 란? : 이름() 
+f	(x)	=	2x+1
+이름	매개변수		out값(리턴값, 결과값)
+
+CREATE OR REPLACE PROCEDURE 프로시저의 이름
+(
+	매개변수 1 IN 데이터 타입 :  = 타입
+	매개변수2  IN 데이터 타입%TYPE
+) 
+IS
+	함수내에서 사용할 변수, 상수 등 선언
+BEGIN
+	실행할 문장
+END;
+
+CALL 프로시저의 이름(값1, 값2)

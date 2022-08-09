@@ -1,0 +1,11 @@
+DCL(Data Control Language) 데이터 제어어 
+- GRANT	: 권한 부여
+- REVOKE	: 권한 회수(강탈)
+
+ROLE : 권한이 뭉쳐 있는 ( 모여 있는) 상태
+ CONNECT, RESOURCE, DBA
+ GRANT 권한명(ROLE이름) TO 계정명
+ REVOKE 권한명(ROLE이름) FROM 계정명
+
+A라는 계정의 테이블에 DML을 사용하기 위해서는 A계정에게 권한을 부여 받아야 한다.
+
