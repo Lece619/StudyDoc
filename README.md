@@ -9,3 +9,5 @@
 ## Refactoring
 
 ## ForTesting
+
+## jpa study 23.01.01 ㅡ인국
