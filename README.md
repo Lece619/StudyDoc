@@ -8,7 +8,7 @@
 
 ## Refactoring
 - more 
-
+- 수행필요
 ## ForTesting
 
 ## jpa study 23.01.01 ㅡ인국
