@@ -1,6 +1,7 @@
   # StudyDoc 2 3
 
 ## HTTP
+인증서 학습 필요
 ## Spring
 ## Android
 ## Spring MVC
